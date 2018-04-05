@@ -22,7 +22,7 @@ public class Prim {
         }
         return min_index;
     }
-    private void PrimJarnik(int graph[][]) {
+    public void PrimJarnik(int graph[][]) {
         //Use to store constructed MST
         int parent[] = new int[graphSize];
         //Key values used to pick minimum weight edge
