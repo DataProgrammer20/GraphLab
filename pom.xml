@@ -6,6 +6,6 @@
     <version>0.1</version>
     <build>
         <sourceDirectory>src</sourceDirectory>
-        <outputDirectory>src</outputDirectory>
+        <outputDirectory>out</outputDirectory>
     </build>
 </project>
