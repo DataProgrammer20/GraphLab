@@ -14,11 +14,11 @@ public class Kruskal {
             System.out.println(spanTree[i].xLocation + "-" + spanTree[i].yLocation);
         }
     }
-    private void JosephKruskal(int graph[][]) {
+    public void JosephKruskal(int graph[][]) {
         /* for each vertex v in G do
                 Define an elementary cluster C(v) = {v}
          */
-        PriorityQueue<Edge> priorityQueue = new PriorityQueue<>(new MyComparator());
+        PriorityQueue<Edge> priorityQueue = new PriorityQueue<Edge>(new MyComparator());
         for (int c = 0; c < graphSize; c++){
             for (int d = 0; d <graphSize; d++) {
                 priorityQueue.add(new Edge(graph[c][d], c, d));

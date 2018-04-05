@@ -89,7 +89,7 @@ public class AdjacencyMatrix {
                     if (w==null){
                         row[j]=INF;
                     } else {
-                        row[j]=(int)w;
+                        row[j]=((Integer)w).intValue();
                     }
                 }
             }
