@@ -5,7 +5,7 @@ Author: William Kingsley, Allen Simpson
  */
 import java.lang.*;
 public class Warshall {
-    private final static int INF = 99999, graphSize = 4;
+    private final static int INF = Integer.MAX_VALUE, graphSize = 4;
     private void printGraph(int graph[][]) {
         for (int i = 0; i < graphSize; i++) {
             for (int j = 0; j  < graphSize; j++) {

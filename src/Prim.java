@@ -1,9 +1,9 @@
 /*
-Author: William Kingsley, Allen Simpson
+    Author: William Kingsley, Allen Simpson
 	Date: 2/18/2018
-	Overview: Floyd Warshall algorithm.
+	Overview:
  */
-//Example implementation of Prim's Algorithm without Queue
+//Example implementation of Prim's Algorithm without Queue (Malfunctioning)
 public class Prim {
     private static final int INF = Integer.MAX_VALUE, graphSize = 5;
     private void printGraph(int parent[], /*int n,*/ int graph[][]) {
@@ -26,7 +26,7 @@ public class Prim {
         //Use to store constructed MST
         int parent[] = new int[graphSize];
         //Key values used to pick minimum weight edge
-        int key[] = new int [graphSize];
+        int key[] = new int[graphSize];
         //Represent set of vertices not yet include in MST
         Boolean mstSet[] = new Boolean[graphSize];
         //Initializing all keys as INF
