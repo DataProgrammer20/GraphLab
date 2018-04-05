@@ -5,37 +5,49 @@ Author: William Kingsley, Allen Simpson
  */
 import java.lang.*;
 public class Warshall {
-    private final static int INF = Integer.MAX_VALUE, graphSize = 4;
-    private void printGraph(int graph[][]) {
-        for (int i = 0; i < graphSize; i++) {
-            for (int j = 0; j  < graphSize; j++) {
-                if (graph[i][j] == INF) {
+    private void printGraph(int graph[][], AdjacencyMatrix am) {
+        for (String v : am.vertices){
+            System.out.print(" "+v+"  ");
+        }
+        System.out.print("\n");
+        for (int i = 0; i < graph.length; i++) {    
+            for (int j = 0; j  < graph.length; j++) {
+                if (graph[i][j] == AdjacencyMatrix.INF) {
                     System.out.print("INF ");
                 }
                 else {
-                    System.out.print(graph[i][j] + "   ");
+                    System.out.print(String.format("%3d", graph[i][j]) + " ");
                 }
             }
             System.out.println();
         }
     }
-    private void floydWarshall(int graph[][]) {
-        int dist[][] = new int[graphSize][graphSize];
+    //Sum distance and account for wrap-around signed integers (INF). 
+    private static int addDistance (int d1, int d2) {
+        int s = d1+d2;
+        if (s<d1||s<d2) {
+            return AdjacencyMatrix.INF;
+        }
+        return s;
+    }
+    public void floydWarshall(int graph[][], AdjacencyMatrix am) {
+        int dist[][] = new int[graph.length][graph.length];
         int i, j, k, x, y;
         //Copying content contained within graph[][] to dist[][]
-        for (i = 0; i < graphSize; i++) {
-            for (j = 0; j < graphSize; j++) {
+        for (i = 0; i < graph.length; i++) {
+            for (j = 0; j < graph.length; j++) {
                 dist[i][j] = graph[i][j];
             }
         }
         //Populating dist[][] with shortest paths
-        for (k = 0; k < graphSize; k++) {
-            printGraph(dist);
+        for (k = 0; k < graph.length; k++) {
+            printGraph(dist,am);
             System.out.println();
-            for (x = 0; x < graphSize; x++) {
-                for (y = 0; y < graphSize; y++) {
-                    if (dist[x][k] + dist[k][y] < dist[x][y]) {
-                        dist[x][y] = dist[x][k] + dist[k][y];
+            for (x = 0; x < graph.length; x++) {
+                for (y = 0; y < graph.length; y++) {
+                    int sum = addDistance(dist[x][k], dist[k][y]);
+                    if (sum < dist[x][y]) {
+                        dist[x][y] = sum;
                     }
                 }
             }
@@ -43,6 +55,7 @@ public class Warshall {
         //printGraph(dist);
     }
     public static void main(String[] args) {
+        int INF = AdjacencyMatrix.INF;
         int graph[][] = { {0, 5, INF, 10},
                           {INF, 0, 3, INF},
                           {INF, INF, 0, 1},
