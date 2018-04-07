@@ -140,53 +140,6 @@ public class PrimJarnik {
         }
     }
     
-    
-    
-    class Edge implements Comparable {
-        String startVertex;
-        String endVertex;
-    
-        public Edge(String startVertex, String endVertex) {
-            this.startVertex = startVertex;
-            this.endVertex = endVertex;
-        }
-    
-        public boolean equals(Object o) {
-            if (o == null) return false;
-            if (o instanceof Edge) {
-                Edge e = (Edge) o;
-                return this.startVertex == e.startVertex && this.endVertex == e.endVertex;
-            } else return false;
-        }
-    
-        public int compareTo(Object o) {
-            if (o instanceof Edge) {
-                Edge e = (Edge) o;
-                if (this.startVertex == e.startVertex) {
-                    return this.endVertex.compareTo(e.endVertex);
-                } else return this.startVertex.compareTo(e.startVertex);
-            } return -1;
-        }
-    
-        public String toString() {
-            return "("+this.startVertex+","+this.endVertex+")";
-        }
-    
-        public int hashCode() {
-            return this.startVertex.hashCode() ^ this.endVertex.hashCode();
-        }
-    
-        public  String arrayToString(Edge[] edges) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("[");
-            for (Edge e : edges) {
-                sb.append(e);
-                sb.append(", ");
-            }
-            sb.append("]");
-            return sb.toString();
-        }
-    }
     public  Edge[] primJarnik(AdjacencyMatrix adjacencyMatrix, String startVertex) {
         W w = new W(adjacencyMatrix.edges);
         D d = new D();

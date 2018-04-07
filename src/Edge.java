@@ -30,21 +30,19 @@ class Edge implements Comparable {
     }
 
     public String toString() {
-        return "("+this.startVertex+","+this.endVertex+")";
+        return this.startVertex+this.endVertex;
     }
 
     public int hashCode() {
         return this.startVertex.hashCode() ^ this.endVertex.hashCode();
     }
 
-    public  String arrayToString(Edge[] edges) {
+    public static  String arrayToString(Edge[] edges) {
         StringBuilder sb = new StringBuilder();
-        sb.append("[");
         for (Edge e : edges) {
             sb.append(e);
-            sb.append(", ");
+            sb.append(" ");
         }
-        sb.append("]");
         return sb.toString();
     }
 }

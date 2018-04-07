@@ -22,8 +22,8 @@ public class Driver {
         System.out.println("Running PrimJarnik:");
         System.out.println("");
         PrimJarnik primJ = new PrimJarnik();
-        PrimJarnik.Edge[] edges=primJ.primJarnik(am,am.vertices[0]);
-        System.out.println(edges[0].arrayToString(edges));
+        Edge[] edges=primJ.primJarnik(am,am.vertices[0]);
+        System.out.println(Edge.arrayToString(edges));
         System.out.println("");
         
     }
@@ -47,7 +47,7 @@ public class Driver {
         System.out.println("");
         Kruskalv2 kruskal = new Kruskalv2();
         Edge[] edges=kruskal.kruskal(am);
-        System.out.println(edges[0].arrayToString(edges));
+        System.out.println(Edge.arrayToString(edges));
         System.out.println("");
     }
     /*
