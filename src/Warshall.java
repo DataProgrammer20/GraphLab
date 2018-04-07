@@ -11,6 +11,7 @@ public class Warshall {
         }
         System.out.print("\n");
         for (int i = 0; i < graph.length; i++) {
+            System.out.println(am.getVertex(i) + " ");
             for (int j = 0; j < graph.length; j++) {
                 if (graph[i][j] == AdjacencyMatrix.INF) {
                     System.out.print("INF ");
