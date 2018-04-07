@@ -3,14 +3,13 @@ Author: William Kingsley, Allen Simpson
 	Date: 4/4/2018
 	Overview: Driver Class.
  */
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
 
 public class Driver {
     public static void main (String args[]) {
-        String pathName = args.length>0 ? args[0] :  "./input.in";
+        String pathName = args.length>0 ? args[0] : "input.in";
         AdjacencyMatrix am = new AdjacencyMatrix(readFile(pathName));
         //testPrim(am);
         testPrimJarnik(am); //Works
