@@ -1,3 +1,8 @@
+/*
+Author: William Kingsley, Allen Simpson
+	Date: 4/4/2018
+	Overview: Driver Class.
+ */
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -7,10 +12,12 @@ public class Driver {
     public static void main (String args[]) {
         String pathName = args.length>0 ? args[0] :  "./input.in";
         AdjacencyMatrix am = new AdjacencyMatrix(readFile(pathName));
-        testPrim(am);
-        testPrimJarnik(am);
-        testKruskal(am);
-        testWarshall(am);
+        //testPrim(am);
+        testPrimJarnik(am); //Works
+        //testKruskal(am);    
+        testKruskal2(am);   //Works
+        testWarshall(am);   //Works
+
     }
     private static void testPrimJarnik(AdjacencyMatrix am) {
         System.out.println("Running PrimJarnik:");
@@ -41,6 +48,14 @@ public class Driver {
         System.out.println("");
         Kruskal kurskal = new Kruskal();
         kurskal.JosephKruskal(am.getGraph());
+        System.out.println("");
+    }
+    private static void testKruskal2(AdjacencyMatrix am) {
+        System.out.println("Running Kruskal2:");
+        System.out.println("");
+        Kruskalv2 kruskal = new Kruskalv2();
+        Edge[] edges=kruskal.kruskal(am);
+        System.out.println(edges[0].arrayToString(edges));
         System.out.println("");
     }
     private static String readFile (String pathName) {
