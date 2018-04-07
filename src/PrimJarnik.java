@@ -1,3 +1,9 @@
+/*
+Author: Allen Simpson
+	Date: 4/4/2018
+	Overview: PrimJarnik Algorithm Implementation.
+ */
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -9,10 +15,6 @@ import java.util.Scanner;
 import java.util.function.Predicate;
 import java.lang.Comparable;
 
-/**
-*
-* @author r29b821
-*/
 public class PrimJarnik {
     
     class W {

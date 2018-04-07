@@ -1,7 +1,7 @@
 /*
-Author: William Kingsley, Allen Simpson
+Author: William Kingsley
 	Date: 2/18/2018
-	Overview: Floyd Warshall algorithm.
+	Overview: Warshall Algorithm Final.
  */
 import java.lang.*;
 public class Warshall {
