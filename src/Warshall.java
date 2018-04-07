@@ -6,6 +6,7 @@ Author: William Kingsley
 import java.lang.*;
 public class Warshall {
     private void printGraph(int graph[][], AdjacencyMatrix am) {
+        System.out.print("  ");
         for (String v : am.vertices) {
             System.out.print(" " + v + "  ");
         }

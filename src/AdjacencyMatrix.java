@@ -23,7 +23,7 @@ class WEdge implements Comparable {
         if (o==null) return false;
         if (o instanceof WEdge) {
             WEdge e = (WEdge) o;
-            return this.weight==e.weight&&this.startVertex==e.startVertex&&this.endVertex==e.endVertex;
+            return this.weight==e.weight&&this.startVertex.equals(e.startVertex)&&this.endVertex.equals(e.endVertex);
         } else return false;
     } 
     public int compareTo(Object o) {
