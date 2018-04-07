@@ -1,3 +1,9 @@
+/*
+Author: Allen Simpson
+	Date: 4/4/2018
+	Overview: Adjacency Matrix Class.
+ */
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -105,7 +111,7 @@ public class AdjacencyMatrix {
     }
     private static String[] fixupLine(String line) {
         ArrayList al = new ArrayList();
-        for(String s : line.split(" ")) { 
+        for(String s : line.split(",")) { 
             al.add(s); 
         }
         int i = 0;
