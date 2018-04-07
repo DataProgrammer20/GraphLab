@@ -1,0 +1,75 @@
+/*
+Author: William Kingsley, Allen Simpson
+	Date: 4/4/2018
+	Overview: Driver Class.
+ */
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.List;
+
+public class Driver {
+    public static void main (String args[]) {
+        String pathName = args.length>0 ? args[0] :  "./input.in";
+        AdjacencyMatrix am = new AdjacencyMatrix(readFile(pathName));
+        //testPrim(am);
+        testPrimJarnik(am); //Works
+        testKruskal(am);   //Works
+        testWarshall(am);   //Works
+
+    }
+    private static void testPrimJarnik(AdjacencyMatrix am) {
+        System.out.println("Running PrimJarnik:");
+        System.out.println("");
+        PrimJarnik primJ = new PrimJarnik();
+        Edge[] edges=primJ.primJarnik(am,am.vertices[0]);
+        System.out.println(Edge.arrayToString(edges));
+        System.out.println("");
+        
+    }
+    private static void testWarshall(AdjacencyMatrix am) {
+        System.out.println("Running Warshall:");
+        System.out.println("");
+        Warshall warshall = new Warshall();
+        warshall.floydWarshall(am.getGraph(),am);
+        System.out.println("");
+    }
+    /*private static void testPrim(AdjacencyMatrix am) {
+        System.out.println("Running Prim:");
+        System.out.println("");
+        Prim prim = new Prim();
+        prim.PrimJarnik(am.getGraph());
+        System.out.println("");
+
+    }*/
+    private static void testKruskal(AdjacencyMatrix am) {
+        System.out.println("Running Kruskal:");
+        System.out.println("");
+        Kruskalv2 kruskal = new Kruskalv2();
+        Edge[] edges=kruskal.kruskal(am);
+        System.out.println(Edge.arrayToString(edges));
+        System.out.println("");
+    }
+    /*
+    private static void testKruskal2(AdjacencyMatrix am) {
+        System.out.println("Running Kruskal2:");
+        System.out.println("");
+        Kruskalv2 kruskal = new Kruskalv2();
+        Edge[] edges=kruskal.kruskal(am);
+        System.out.println(edges[0].arrayToString(edges));
+        System.out.println("");
+    }*/
+    private static String readFile (String pathName) {
+        try {
+            List<String> lines = java.nio.file.Files.readAllLines(Paths.get(pathName));
+            StringBuilder sb = new StringBuilder();
+            for (String l : lines) {
+                sb.append(l+"\n");
+            }
+            return sb.toString();
+        } catch (IOException e) {
+            System.out.println(e.toString());
+            return "";
+        }
+    }
+}
