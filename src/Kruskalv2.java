@@ -1,5 +1,5 @@
 /*
-Author: William Kingsley, Allen Simpson
+    Author: William Kingsley, Allen Simpson
 	Date: 4/7/2018
 	Overview: Kruskal Algorithm Final Implementation.
  */

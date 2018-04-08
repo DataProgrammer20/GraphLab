@@ -1,5 +1,5 @@
 /*
-Author:Allen Simpson
+    Author:Allen Simpson
 	Date: 4/5/2018
 	Overview: Final Edge Class.
  */

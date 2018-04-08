@@ -1,7 +1,8 @@
 /*
-Author: William Kingsley, Allen Simpson
-	Date: 4/4/2018
-	Overview: Driver Class.
+    Author: William Kingsley, Allen Simpson
+	Date: 4/7/2018
+	Overview: The driver class is used for the purpose
+	 of executing the Prim, Warshall, and Kruskal algorithms.
  */
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -11,12 +12,12 @@ public class Driver {
     public static void main (String args[]) {
         String pathName = args.length>0 ? args[0] : "input.in";
         AdjacencyMatrix am = new AdjacencyMatrix(readFile(pathName));
-        //testPrim(am);
         testPrimJarnik(am); //Works
         testKruskal(am);   //Works
         testWarshall(am);   //Works
 
     }
+    //Method for testing and execution of the Prim algorithm
     private static void testPrimJarnik(AdjacencyMatrix am) {
         System.out.println("Running PrimJarnik:");
         System.out.println("");
@@ -26,6 +27,7 @@ public class Driver {
         System.out.println("");
         
     }
+    //Method for testing/execution of the Warshall algorithm
     private static void testWarshall(AdjacencyMatrix am) {
         System.out.println("Running Warshall:");
         System.out.println("");
@@ -33,14 +35,7 @@ public class Driver {
         warshall.floydWarshall(am.getGraph(),am);
         System.out.println("");
     }
-    /*private static void testPrim(AdjacencyMatrix am) {
-        System.out.println("Running Prim:");
-        System.out.println("");
-        Prim prim = new Prim();
-        prim.PrimJarnik(am.getGraph());
-        System.out.println("");
-
-    }*/
+    //Method for testing/execution of the Kruskal algorithm
     private static void testKruskal(AdjacencyMatrix am) {
         System.out.println("Running Kruskal:");
         System.out.println("");
@@ -49,15 +44,7 @@ public class Driver {
         System.out.println(Edge.arrayToString(edges));
         System.out.println("");
     }
-    /*
-    private static void testKruskal2(AdjacencyMatrix am) {
-        System.out.println("Running Kruskal2:");
-        System.out.println("");
-        Kruskalv2 kruskal = new Kruskalv2();
-        Edge[] edges=kruskal.kruskal(am);
-        System.out.println(edges[0].arrayToString(edges));
-        System.out.println("");
-    }*/
+    //Method readFile is used for reading an input file containing a adjacency matrix
     private static String readFile (String pathName) {
         try {
             List<String> lines = java.nio.file.Files.readAllLines(Paths.get(pathName));

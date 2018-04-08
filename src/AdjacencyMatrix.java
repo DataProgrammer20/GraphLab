@@ -1,5 +1,5 @@
 /*
-Author: Allen Simpson
+    Author: Allen Simpson
 	Date: 4/4/2018
 	Overview: Adjacency Matrix Class.
  */

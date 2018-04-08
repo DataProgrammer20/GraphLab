@@ -1,18 +1,10 @@
 /*
-Author: Allen Simpson
+    Author: Allen Simpson
 	Date: 4/4/2018
 	Overview: PrimJarnik Algorithm Implementation.
  */
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.PriorityQueue;
-import java.util.Scanner;
-import java.util.function.Predicate;
 import java.lang.Comparable;
 
 public class PrimJarnik {
@@ -175,4 +167,3 @@ public class PrimJarnik {
     }    
     
 }
-

@@ -1,10 +1,13 @@
 /*
-Author: William Kingsley
+    Author: William Kingsley
 	Date: 2/18/2018
-	Overview: Warshall Algorithm Final.
+	Overview: This file contains the Warshall algorithm
+	for finding the finding the shortest distance between
+	every vertex in a graph.
  */
 import java.lang.*;
 public class Warshall {
+    //Method for printing the graph
     private void printGraph(int graph[][], AdjacencyMatrix am) {
         System.out.print("  ");
         for (String v : am.vertices) {
