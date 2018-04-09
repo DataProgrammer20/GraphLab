@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Driver {
     public static void main (String args[]) {
-        String pathName = args.length>0 ? args[0] : "input.in";
+        String pathName = args.length > 0 ? args[0] : "input.in";
         AdjacencyMatrix am = new AdjacencyMatrix(readFile(pathName));
         testPrimJarnik(am); //Works
         testKruskal(am);   //Works
