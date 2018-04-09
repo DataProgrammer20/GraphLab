@@ -8,8 +8,9 @@ import java.util.HashMap;
 import java.lang.Comparable;
 
 public class PrimJarnik {
-    
-    class W {
+    //The various classes below are designed to allow for the algorithm (at the bottom of the file)
+    //to resemble the pseudocode as closely as possible
+    class W { // The Array of Weighted Edges
         HashMap startingVertex = new HashMap();
         public W(WEdge[] edges) {
             for(WEdge edge : edges) {
@@ -33,7 +34,7 @@ public class PrimJarnik {
         }
     }
     
-    class Connect {
+    class Connect { //Implementation of the "connect" function
         HashMap map = new HashMap();
         public Connect() {
             this.map = new HashMap();
@@ -47,7 +48,7 @@ public class PrimJarnik {
         }
     }
     
-    class D {
+    class D { //Hashmap of all Vertex Weighted Edge pairs
         HashMap map = new HashMap();
         public D() {
             this.map = new HashMap();
@@ -64,7 +65,7 @@ public class PrimJarnik {
         }
     }
     
-    class Q {
+    class Q { //Priority Que Implementation (This que has a resort method defined in it)
         class Tuple implements Comparable {
             int weight;
             String vertex;
@@ -119,7 +120,7 @@ public class PrimJarnik {
         }
     }
     
-    class T {
+    class T {   //The Tree "T" Implementation
         ArrayList list = new ArrayList();
         public T() {
     
@@ -131,7 +132,7 @@ public class PrimJarnik {
             return (Edge[])list.toArray(new Edge[list.size()]);
         }
     }
-    
+    //The PrimJarnik Algorithm'm actual implementation
     public  Edge[] primJarnik(AdjacencyMatrix adjacencyMatrix, String startVertex) {
         W w = new W(adjacencyMatrix.edges);
         D d = new D();
