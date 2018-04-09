@@ -10,6 +10,8 @@ import java.util.HashMap;
 //Adjacency Matrix Class
 //This class should build an adjacency matrix from the 
 //inputed data and store the matrix as a multidimensional array of values
+
+//The WEdge (Weighted Edge) class allows us to store all the data about the edges in the graph
 class WEdge implements Comparable {
     int weight;
     String startVertex;
@@ -19,6 +21,7 @@ class WEdge implements Comparable {
         startVertex = s;
         endVertex = e;
     }
+    //Below here are just Quality of Life Functions to make code easier later on
     public boolean equals(Object o) {
         if (o==null) return false;
         if (o instanceof WEdge) {
@@ -41,7 +44,8 @@ class WEdge implements Comparable {
     }
     public String toString() {
         return String.format("(%d, %s, %s)", this.weight, this.startVertex, this.endVertex);
-    }
+   } 
+   //For printing the array of edges in the PrimmJarnik Algorithm
     public static String arrayToString (WEdge[] edges){
         StringBuilder sb = new StringBuilder();
         sb.append("[");
@@ -53,7 +57,7 @@ class WEdge implements Comparable {
         return sb.toString();
     }
 }
-
+//This data structure allows us to store the adjacency matrix and all its values.
 public class AdjacencyMatrix {
     String[] vertices;
     WEdge[] edges;
@@ -70,6 +74,7 @@ public class AdjacencyMatrix {
     public int graphSize() {
         return this.vertices.length;
     }
+    //Allows for getting the Adjacency matrix graph for The Warshall Algorithm implementation
     public int[][] getGraph() {
         HashMap rows = new HashMap();
         for (WEdge edge : edges) {
@@ -109,6 +114,7 @@ public class AdjacencyMatrix {
             return "UNKNOWN";
         }
     }
+    //Formatting Functions
     private static String[] fixupLine(String line) {
         ArrayList al = new ArrayList();
         for(String s : line.split(",")) { 
@@ -147,6 +153,7 @@ public class AdjacencyMatrix {
         }
         return (String[][])al.toArray(new String[al.size()][]); 
     }
+    //Maps the verticies of a row into Weighted Edges
     private static void mapRowData(String[] vertices, int rowIdx,String[] rowData,ArrayList acc) {
         String rowVertex = vertices[rowIdx];
         for(int i = 0; i < rowData.length; i++) {
@@ -158,6 +165,7 @@ public class AdjacencyMatrix {
             }
         }
     }
+    //Builds the Adjacency Matrix Datastructure
     private void buildAdjecencyMatrix(String txt) {
         String[][] a = fixupLines(txt);
         String[] vertices = a[0];
