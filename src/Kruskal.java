@@ -9,8 +9,8 @@ import java.util.HashSet;
 import java.util.PriorityQueue;
 
 public class Kruskal {
-    class Cluster{
-        HashMap<String,HashSet<String>> sets = new HashMap<String,HashSet<String>>();
+    class Cluster{ //This is our implementation of a Cluster as defined in the Pseudocode
+        HashMap<String,HashSet<String>> sets = new HashMap<String,HashSet<String>>(); //This is a hashmap of a String (Verticies) to Hashset (Edges)
         
         public Cluster (String[] verticies) {
             for (String s : verticies) {
@@ -22,7 +22,7 @@ public class Kruskal {
         public HashSet<String> get(String vertex) {
             return (HashSet<String>)sets.get(vertex);
         }
-        public void merge (HashSet<String> A, HashSet<String> B) {
+        public void merge (HashSet<String> A, HashSet<String> B) {  //This is our implementation of Union as defined in the pseudocode
             HashSet<String> merged = new HashSet<String>();
             for (String s : A) {
                 merged.add(s);
@@ -35,6 +35,7 @@ public class Kruskal {
             }
         }
     }
+    //This is the Kruskal Algorithm, designed as close as possible to the psedocode.
     public Edge[] kruskal(AdjacencyMatrix am){
         ArrayList<Edge> t = new ArrayList<Edge> ();
         PriorityQueue<WEdge> q= new PriorityQueue<WEdge>();
