@@ -39,7 +39,7 @@ public class Driver {
     private static void testKruskal(AdjacencyMatrix am) {
         System.out.println("Running Kruskal:");
         System.out.println("");
-        Kruskalv2 kruskal = new Kruskalv2();
+        Kruskal kruskal = new Kruskal();
         Edge[] edges=kruskal.kruskal(am);
         System.out.println(Edge.arrayToString(edges));
         System.out.println("");

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 
-public class Kruskalv2 {
+public class Kruskal {
     class Cluster{
         HashMap<String,HashSet<String>> sets = new HashMap<String,HashSet<String>>();
         
