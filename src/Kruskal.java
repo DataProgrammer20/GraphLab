@@ -2,6 +2,8 @@
     Author: William Kingsley, Allen Simpson
 	Date: 4/7/2018
 	Overview: Kruskal Algorithm Final Implementation.
+	The Kruskal algorithm creates a minimum spaning tree
+	similar to that of Prim's algorithm
  */
 import java.util.ArrayList;
 import java.util.HashMap;
